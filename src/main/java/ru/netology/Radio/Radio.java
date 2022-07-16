@@ -12,7 +12,7 @@ public class Radio {
     }
 
     public void setCurrentNumberPosition(int newCurrentNumberPosition) {        // выставление радиостанции напрямую
-        if (newCurrentNumberPosition <= 0) {
+        if (newCurrentNumberPosition < 0) {
             return;
         }
         if (newCurrentNumberPosition >= 10) {
@@ -56,7 +56,7 @@ public class Radio {
             return;
         }
 
-        if (currentVolume < 10) {
+        if (currentVolume <= 10) {
             currentVolume = currentVolume - 1;
         }
     }
