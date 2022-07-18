@@ -1,14 +1,19 @@
 package ru.netology.Radio;
 
 public class Radio {
-    public int currentNumberPosition;
-    public int currentVolume;
+    private int currentNumberPosition;
+    private int currentVolume;
 
     public int getCurrentNumberPosition() {
         return currentNumberPosition;
     }
+
     public int getCurrentVolume() {
         return currentVolume;
+    }
+
+    public void setCurrentVolume(int newCurrentVolume) {
+        currentVolume = newCurrentVolume;
     }
 
     public void setCurrentNumberPosition(int newCurrentNumberPosition) {        // выставление радиостанции напрямую
@@ -42,21 +47,34 @@ public class Radio {
 
 
     public void increaseVolume() {                            // увеличение громкости
-        if (currentVolume == 10) {
+
+        if (currentVolume > 10) {
+            currentVolume = 10;
             return;
         }
 
         if (currentVolume < 10) {
             currentVolume = currentVolume + 1;
         }
+
     }
 
     public void decreaseVolume() {                            // уменьшение громкости
-        if (currentVolume == 0) {
+
+        if (currentVolume <= 0) {
+            currentVolume = 0;
             return;
         }
 
-        if (currentVolume <= 10) {
+        if (currentVolume > 10) {
+            currentVolume = 10;
+            return;
+        }
+
+        if (currentVolume < 10) {
+            currentVolume = currentVolume - 1;
+        }
+        if (currentVolume == 10) {
             currentVolume = currentVolume - 1;
         }
     }
