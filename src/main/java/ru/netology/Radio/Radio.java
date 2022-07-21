@@ -1,8 +1,21 @@
 package ru.netology.Radio;
 
 public class Radio {
-    private int currentNumberPosition;
-    private int currentVolume;
+    private int amountPosition = 10;
+
+
+    private int minCurrentNumberPosition = 0;
+    private int maxCurrentNumberPosition = amountPosition - 1;
+    private int minVolume = 0;
+    private int maxVolume = 100;
+
+    private int currentNumberPosition = minCurrentNumberPosition;
+    private int currentVolume = minVolume;
+
+    public Radio(int amountPosition) {
+        this.amountPosition = amountPosition;
+
+    }
 
     public int getCurrentNumberPosition() {
         return currentNumberPosition;
@@ -11,16 +24,31 @@ public class Radio {
     public int getCurrentVolume() {
         return currentVolume;
     }
+/*
+    public int getMinCurrentNumberPosition() {
+    return minCurrentNumberPosition;
+    }
+    public int getMaxCurrentNumberPosition() {
+        return maxCurrentNumberPosition;
+    }
+    public int getMinVolume() {
+        return minVolume;
+    }
+    public int getMaxVolume() {
+        return maxVolume;
+    }
+
+ */
 
     public void setCurrentVolume(int newCurrentVolume) {
         currentVolume = newCurrentVolume;
     }
 
     public void setCurrentNumberPosition(int newCurrentNumberPosition) {        // выставление радиостанции напрямую
-        if (newCurrentNumberPosition < 0) {
+        if (newCurrentNumberPosition < minCurrentNumberPosition) {
             return;
         }
-        if (newCurrentNumberPosition >= 10) {
+        if (newCurrentNumberPosition > maxCurrentNumberPosition) {
             return;
         }
         currentNumberPosition = newCurrentNumberPosition;
@@ -28,8 +56,8 @@ public class Radio {
 
 
     public void nextCurrentNumberPosition() {        // нажатие на кнопку next
-        if (currentNumberPosition == 9) {
-            currentNumberPosition = 0;
+        if (currentNumberPosition == maxCurrentNumberPosition) {
+            currentNumberPosition = minCurrentNumberPosition;
             return;
         }
         currentNumberPosition = currentNumberPosition + 1;
@@ -38,8 +66,8 @@ public class Radio {
 
     public void prevCurrentNumberPosition() {        // нажатие на кнопку prev
 
-        if (currentNumberPosition == 0) {
-            currentNumberPosition = 9;
+        if (currentNumberPosition == minCurrentNumberPosition) {
+            currentNumberPosition = maxCurrentNumberPosition;
             return;
         }
         currentNumberPosition = currentNumberPosition - 1;
@@ -48,33 +76,37 @@ public class Radio {
 
     public void increaseVolume() {                            // увеличение громкости
 
-        if (currentVolume > 10) {
-            currentVolume = 10;
+        if (currentVolume > maxVolume) {
+            currentVolume = maxVolume;
             return;
         }
 
-        if (currentVolume < 10) {
+        if (currentVolume < maxVolume) {
             currentVolume = currentVolume + 1;
+        }
+        if (currentVolume < minVolume) {
+            currentVolume = minVolume;
+            return;
         }
 
     }
 
     public void decreaseVolume() {                            // уменьшение громкости
 
-        if (currentVolume <= 0) {
-            currentVolume = 0;
+        if (currentVolume <= minVolume) {
+            currentVolume = minVolume;
             return;
         }
 
-        if (currentVolume > 10) {
-            currentVolume = 10;
+        if (currentVolume > maxVolume) {
+            currentVolume = maxVolume;
             return;
         }
 
-        if (currentVolume < 10) {
+        if (currentVolume < maxVolume) {
             currentVolume = currentVolume - 1;
         }
-        if (currentVolume == 10) {
+        if (currentVolume == maxVolume) {
             currentVolume = currentVolume - 1;
         }
     }
