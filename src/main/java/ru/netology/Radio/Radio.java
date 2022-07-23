@@ -1,6 +1,16 @@
 package ru.netology.Radio;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
 public class Radio {
+
     private int amountPosition = 10;
 
 
@@ -16,7 +26,7 @@ public class Radio {
         this.amountPosition = amountPosition;
 
     }
-
+/*
     public int getCurrentNumberPosition() {
         return currentNumberPosition;
     }
@@ -24,26 +34,14 @@ public class Radio {
     public int getCurrentVolume() {
         return currentVolume;
     }
-/*
-    public int getMinCurrentNumberPosition() {
-    return minCurrentNumberPosition;
-    }
-    public int getMaxCurrentNumberPosition() {
-        return maxCurrentNumberPosition;
-    }
-    public int getMinVolume() {
-        return minVolume;
-    }
-    public int getMaxVolume() {
-        return maxVolume;
-    }
 
- */
 
     public void setCurrentVolume(int newCurrentVolume) {
         currentVolume = newCurrentVolume;
     }
 
+
+ */
     public void setCurrentNumberPosition(int newCurrentNumberPosition) {        // выставление радиостанции напрямую
         if (newCurrentNumberPosition < minCurrentNumberPosition) {
             return;
@@ -53,7 +51,6 @@ public class Radio {
         }
         currentNumberPosition = newCurrentNumberPosition;
     }
-
 
     public void nextCurrentNumberPosition() {        // нажатие на кнопку next
         if (currentNumberPosition == maxCurrentNumberPosition) {
