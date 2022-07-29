@@ -10,7 +10,7 @@ public class RadioTest {
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/data1.csv")
     public void shouldSetAnyNumberPosition(int currentNumberPositionNow, int newCurrentNumberPosition, int expected) {
-        Radio radio = new Radio();
+        Radio radio = new Radio(20);
         radio.setCurrentNumberPosition(currentNumberPositionNow);
         radio.setCurrentNumberPosition(newCurrentNumberPosition);
 //    radio.currentNumberPosition = currentNumberPositionNow;
@@ -25,7 +25,7 @@ public class RadioTest {
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/data2.csv")
     public void shouldSetNextNumberPosition(int currentNumberPositionNow, int expected) {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 //        radio.currentNumberPosition = currentNumberPositionNow;
         radio.setCurrentNumberPosition(currentNumberPositionNow);
         radio.nextCurrentNumberPosition();
@@ -40,7 +40,7 @@ public class RadioTest {
     @CsvFileSource(files = "src/test/resources/data3.csv")
     public void shouldSetPrevNumberPosition(int currentNumberPosition, int expected) {
 
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 //        radio.currentNumberPosition = currentNumberPositionNow;
         radio.setCurrentNumberPosition(currentNumberPosition);
         radio.prevCurrentNumberPosition();
@@ -55,7 +55,7 @@ public class RadioTest {
     @CsvFileSource(files = "src/test/resources/data4.csv")
     public void shouldSetIncreaseVolumeFor1(int currentVolumeNow, int expected) {
 
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 //        radio.currentVolume = currentVolumeNow;
         radio.setCurrentVolume(currentVolumeNow);
         radio.increaseVolume();
@@ -70,7 +70,7 @@ public class RadioTest {
     @CsvFileSource(files = "src/test/resources/data5.csv")
     public void shouldSetDecreaseVolumeFor1(int currentVolumeNow, int expected) {
 
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 //        radio.currentVolume = currentVolumeNow;
         radio.setCurrentVolume(currentVolumeNow);
         radio.decreaseVolume();
