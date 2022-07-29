@@ -10,7 +10,7 @@ public class RadioTest {
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/data1.csv")
     public void shouldSetAnyNumberPosition(int currentNumberPositionNow, int newCurrentNumberPosition, int expected) {
-        Radio radio = new Radio(10);
+        Radio radio = new Radio(20);
         radio.setCurrentNumberPosition(currentNumberPositionNow);
         radio.setCurrentNumberPosition(newCurrentNumberPosition);
 //    radio.currentNumberPosition = currentNumberPositionNow;

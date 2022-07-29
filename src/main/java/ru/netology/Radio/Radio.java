@@ -1,21 +1,24 @@
 package ru.netology.Radio;
 
 public class Radio {
-    private int amountPosition = 10;
+    private int amountPosition;
+    public Radio(int amountPosition) {
+        this.amountPosition = amountPosition;
+        this.minCurrentNumberPosition = 0;
+        this.maxCurrentNumberPosition = amountPosition - 1;
+        this.minVolume = 0;
+        this.maxVolume = 100;
+    }
 
-
-    private int minCurrentNumberPosition = 0;
-    private int maxCurrentNumberPosition = amountPosition - 1;
-    private int minVolume = 0;
-    private int maxVolume = 100;
+    private int minCurrentNumberPosition;
+    private int maxCurrentNumberPosition;
+    private int minVolume;
+    private int maxVolume;
 
     private int currentNumberPosition = minCurrentNumberPosition;
     private int currentVolume = minVolume;
 
-    public Radio(int amountPosition) {
-        this.amountPosition = amountPosition;
 
-    }
 
     public int getCurrentNumberPosition() {
         return currentNumberPosition;
